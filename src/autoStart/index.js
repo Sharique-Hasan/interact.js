@@ -165,7 +165,7 @@ function prepare (interaction, { action, target, element }) {
   action = action || {};
 
   if (interaction.target && interaction.target.options.styleCursor) {
-    interaction.target._doc.documentElement.style.cursor = '';
+    interaction.target._element.style.cursor = '';
   }
 
   interaction.target = target;
@@ -174,7 +174,7 @@ function prepare (interaction, { action, target, element }) {
 
   if (target && target.options.styleCursor) {
     const cursor = action? actions[action.name].getCursor(action) : '';
-    interaction.target._doc.documentElement.style.cursor = cursor;
+    interaction.target._element.documentElement.style.cursor = cursor;
   }
 
   signals.fire('prepared', { interaction: interaction });
@@ -184,7 +184,7 @@ Interaction.signals.on('stop', function ({ interaction }) {
   const target = interaction.target;
 
   if (target && target.options.styleCursor) {
-    target._doc.documentElement.style.cursor = '';
+    target._elemenet.documentElement.style.cursor = '';
   }
 });
 
